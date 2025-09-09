@@ -1,12 +1,11 @@
 # Argumentation Computation with Large Language Models: A Benchmark Study
 
----
+
 
 This repository contains code to generate datasets and run experiments for using large language models (LLMs) to compute extensions of various abstract argumentation semantics.
 
 ## Installation
 
----
 
 First, create a Python 3 virtual environment (tested with Python 3.10) and install the required packages using pip or conda.
 
@@ -36,7 +35,6 @@ To generate Argumentation Frameworks (AFs), we use:
 - [AFGen](http://argumentationcompetition.org/2019/papers/ICCMA19_paper_3.pdf)
 - [probo](https://sourceforge.net/projects/probo/)
 
-> Thanks to the original authors!
 
 The `src/data` folder contains data generation scripts:
 
@@ -63,7 +61,6 @@ To generate data, simply run:
 
    llamafactory-cli train examples/train_lora/llama3_lora_sft.yaml
 
----
 
 ## Reference
 
