@@ -9,8 +9,8 @@ from pathlib import Path
 from timeit import default_timer as timer
 from typing import Tuple, Union
 
-from src.constants import GRD, IDE, PRF, STB, COM
-from src.data.classes.argumentation_framework import ArgumentationFramework
+from constants import GRD, IDE, PRF, STB, COM
+from data.classes.argumentation_framework import ArgumentationFramework
 
 
 class EnumerationSolver:

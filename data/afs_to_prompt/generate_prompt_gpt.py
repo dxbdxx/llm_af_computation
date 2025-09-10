@@ -9,8 +9,8 @@ import networkx as nx
 import matplotlib.pyplot as plt
 from tqdm import tqdm
 
-from src import config
-from src.data.afs_to_prompt.openai_api import OpenAI_GPT4_mini_API
+import config
+from data.afs_to_prompt.openai_api import OpenAI_GPT4_mini_API
 
 
 class JsonEncoder(json.JSONEncoder):

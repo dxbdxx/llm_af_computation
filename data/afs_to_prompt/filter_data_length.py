@@ -4,10 +4,10 @@ import re
 from tqdm import tqdm
 from transformers import AutoTokenizer
 
-from src import config
+import config
 
-# 加载预训练的 tokenizer
-tokenizer = AutoTokenizer.from_pretrained("/home/fangxiaotong/Desktop/LLM/Meta-Llama-3.1-8B-Instruct")
+
+tokenizer = AutoTokenizer.from_pretrained("Meta-Llama-3.1-8B-Instruct")
 
 if __name__ == "__main__":
     dataset_names = [f"train-{i}" for i in range(5, 26)]
@@ -20,22 +20,20 @@ if __name__ == "__main__":
         json_dir = config.dataset_dir / dataset_name / "prompt" / "txt"
         prompt_dir = json_dir / "prompt__grd"
         prompt_dir2 = json_dir / "prompt__com"
-        # 获取两个目录中的所有 .txt 文件
+
         filenames = list(prompt_dir.glob("*.txt")) + list(prompt_dir2.glob("*.txt"))
         for file in filenames:
             with open(file, 'r', encoding='utf-8') as file:
                 file_content = file.read()
-                # 定义正则表达式模式
+                
                 instruction_pattern = re.compile(r'instruction:(.*?)(?=input:|$)', re.DOTALL)
                 input_pattern = re.compile(r'input:(.*?)(?=output:|$)', re.DOTALL)
                 output_pattern = re.compile(r'output:(.*?)(?=$)', re.DOTALL)
 
-                # 查找匹配项
                 instruction_match = instruction_pattern.search(file_content)
                 input_match = input_pattern.search(file_content)
                 output_match = output_pattern.search(file_content)
 
-                # 检查匹配结果并提取内容
                 instruction = instruction_match.group(1).strip() if instruction_match else ""
                 input_string = input_match.group(1).strip() if input_match else ""
                 output = output_match.group(1).strip() if output_match else ""

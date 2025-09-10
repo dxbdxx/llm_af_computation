@@ -6,12 +6,12 @@ import random
 from pathlib import Path
 from typing import Optional, Dict, List, TYPE_CHECKING
 
-from src.constants import STRICT, NONSTRICT, SCEPT, CRED
-from src.data.classes.argumentation_framework import ArgumentationFramework
-from src.data.classes.problems.argumentation_problem import ArgumentationProblem
+from constants import STRICT, NONSTRICT, SCEPT, CRED
+from data.classes.argumentation_framework import ArgumentationFramework
+from data.classes.problems.argumentation_problem import ArgumentationProblem
 
 if TYPE_CHECKING:
-    from src.data.solvers.enforcement_solver import EnforcementSolver
+    from data.solvers.enforcement_solver import EnforcementSolver
 
 
 class EnforcementProblem(ArgumentationProblem):

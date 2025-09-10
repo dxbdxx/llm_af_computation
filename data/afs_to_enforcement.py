@@ -3,11 +3,11 @@ import random
 
 from tqdm import tqdm
 
-from src import config
-from src.constants import GRD, STB, COM, PRF, CRED, STRICT, NONSTRICT, SCEPT
-from src.data.classes.argumentation_framework import ArgumentationFramework
-from src.data.classes.problems.enforcement_problem import EnforcementProblem
-from src.data.solvers.enforcement_solver import EnforcementSolver
+import config
+from constants import GRD, STB, COM, PRF, CRED, STRICT, NONSTRICT, SCEPT
+from data.classes.argumentation_framework import ArgumentationFramework
+from data.classes.problems.enforcement_problem import EnforcementProblem
+from data.solvers.enforcement_solver import EnforcementSolver
 
 
 def main(args: argparse.Namespace):

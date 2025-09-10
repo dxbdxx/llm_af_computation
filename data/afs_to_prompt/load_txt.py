@@ -3,9 +3,7 @@ import json
 import re
 from transformers import AutoTokenizer
 
-# 加载预训练的 tokenizer
-
-from src import config
+import config
 
 
 def load_txt(datasets, path, max_data_entries):
@@ -18,9 +16,7 @@ def load_txt(datasets, path, max_data_entries):
         json_dir = config.dataset_dir / dataset / "prompt" / "txt"
         prompt_dir = json_dir / "prompt_grd"
         prompt_dir2 = json_dir / "prompt_com"
-        # prompt_dir = json_dir / "grd_no_exp"
-        # prompt_dir2 = json_dir / "com_no_exp"
-        # 获取两个目录中的所有 .txt 文件
+
         filenames1 = list(prompt_dir.glob("*.txt"))
         filenames2 = list(prompt_dir2.glob("*.txt"))
         data_count = 0
@@ -31,17 +27,15 @@ def load_txt(datasets, path, max_data_entries):
                     file_content = file.read()
                 except UnicodeDecodeError:
                     regenerate.append(file)
-                # 定义正则表达式模式
+
                 instruction_pattern = re.compile(r'instruction:(.*?)(?=input:|$)', re.DOTALL)
                 input_pattern = re.compile(r'input:(.*?)(?=output:|$)', re.DOTALL)
                 output_pattern = re.compile(r'output:(.*?)(?=$)', re.DOTALL)
 
-                # 查找匹配项
                 instruction_match = instruction_pattern.search(file_content)
                 input_match = input_pattern.search(file_content)
                 output_match = output_pattern.search(file_content)
 
-                # 检查匹配结果并提取内容
                 instruction = instruction_match.group(1).strip() if instruction_match else ""
                 input_string = input_match.group(1).strip() if input_match else ""
                 output = output_match.group(1).strip() if output_match else ""
@@ -67,17 +61,15 @@ def load_txt(datasets, path, max_data_entries):
                     file_content = file.read()
                 except UnicodeDecodeError:
                     regenerate.append(file)
-                # 定义正则表达式模式
+
                 instruction_pattern = re.compile(r'instruction:(.*?)(?=input:|$)', re.DOTALL)
                 input_pattern = re.compile(r'input:(.*?)(?=output:|$)', re.DOTALL)
                 output_pattern = re.compile(r'output:(.*?)(?=$)', re.DOTALL)
 
-                # 查找匹配项
                 instruction_match = instruction_pattern.search(file_content)
                 input_match = input_pattern.search(file_content)
                 output_match = output_pattern.search(file_content)
 
-                # 检查匹配结果并提取内容
                 instruction = instruction_match.group(1).strip() if instruction_match else ""
                 input_string = input_match.group(1).strip() if input_match else ""
                 output = output_match.group(1).strip() if output_match else ""
@@ -134,7 +126,7 @@ if __name__ == '__main__':
         "--dataset", type=str, default="train"
     )
     parser.add_argument(
-        "--llm_path", type=str, default="/home/fangxiaotong/Desktop/LLM/Meta-Llama-3.1-8B-Instruct"
+        "--llm_path", type=str, default="Meta-Llama-3.1-8B-Instruct"
     )
     args = parser.parse_args()
     main(args)

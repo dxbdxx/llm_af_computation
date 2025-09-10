@@ -4,11 +4,11 @@ import random
 
 from tqdm import tqdm
 
-from src import config
-from src.constants import PRF, GRD, COM, STB
-from src.data.classes.argumentation_framework import ArgumentationFramework
-from src.data.classes.problems.enumeration_problem import EnumerationProblem
-from src.data.solvers.enumeration_solver import EnumerationSolver
+import config
+from constants import PRF, GRD, COM, STB
+from data.classes.argumentation_framework import ArgumentationFramework
+from data.classes.problems.enumeration_problem import EnumerationProblem
+from data.solvers.enumeration_solver import EnumerationSolver
 
 
 def main(args: argparse.Namespace):

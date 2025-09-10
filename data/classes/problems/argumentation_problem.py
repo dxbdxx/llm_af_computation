@@ -2,7 +2,7 @@ import pickle
 from pathlib import Path
 from typing import Optional, Dict
 
-from src.data.classes.argumentation_framework import ArgumentationFramework
+from data.classes.argumentation_framework import ArgumentationFramework
 
 
 class ArgumentationProblem:

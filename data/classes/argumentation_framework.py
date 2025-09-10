@@ -12,7 +12,7 @@ from networkx.classes.function import (
     non_edges,
 )
 
-from src.data.utils import apx2nxgraph, nxgraph2apx
+from data.utils import apx2nxgraph, nxgraph2apx
 
 
 class ArgumentationFramework:

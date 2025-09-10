@@ -5,10 +5,10 @@ from typing import Optional, TYPE_CHECKING
 import networkx as nx
 from networkx import DiGraph
 
-from src.constants import MUST_OUT, BLANK, OPP, OUT, UNDEC, PRO
+from constants import MUST_OUT, BLANK, OPP, OUT, UNDEC, PRO
 
 if TYPE_CHECKING:
-    from src.data.classes.argumentation_framework import ArgumentationFramework
+    from data.classes.argumentation_framework import ArgumentationFramework
 
 
 class AcceptanceVerifier:

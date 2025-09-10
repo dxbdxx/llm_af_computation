@@ -9,8 +9,8 @@ import networkx as nx
 import matplotlib.pyplot as plt
 from tqdm import tqdm
 
-from src import config
-from src.data.afs_to_prompt.openai_api import OpenAI_GPT4_mini_API
+import config
+from data.afs_to_prompt.openai_api import OpenAI_GPT4_mini_API
 
 
 class JsonEncoder(json.JSONEncoder):
@@ -293,8 +293,6 @@ def com_section(G, exts, json_dir, f):
 
             return
 
-        # print(f"So let's add IN set some elements of UNDEC: {set_und} to find all other complete extensions.",
-        #       file=f_write)
         if len(ext_com) == 1:
             print(
                 "We cannot find other complete extensions, so the sole complete extension is the grounded extenstion.",
@@ -324,10 +322,7 @@ def com_section(G, exts, json_dir, f):
 
                 print("======== STEP JUSTIFICATION =========", file=f_write)
                 sp = f"We can add {diff1} to IN set: {set_in1} and add {diff2} to OUT set: {set_out1}, the rest is UNDEC set: {set_und1}. Let’s confirm this is a complete labelling."
-                # if random.random() > 0.5:
-                #     sp += "Because IN set is conflict-free. Furthermore: "
-                # else:
-                #     sp += "Because there is no attack relation in IN set. Furthermore: "
+
                 print(sp, file=f_write)
 
                 print(
@@ -341,27 +336,10 @@ def com_section(G, exts, json_dir, f):
                         print(f"(1.{i + 1}) {arg} is attacked by {arg1} while {arg1} is labelled OUT;",
                               file=f_write)
 
-                        # attackers1 = get_attacker(G, arg1)
-                        # att_options = []
-                        # for att in attackers1:
-                        #     if att in set_in1:
-                        #         att_options.append(att)
-                        # att = random.choice(att_options)
-                        # print(f"{arg1} is attacked by {att} which is labelled IN.", file=f_write)
-
                     else:
                         print(f"(1.{i + 1}) {arg} is attacked by {attackers} while they are labelled OUT;",
                               file=f_write)
-                        # str_attack = ""
-                        # for arg1 in attackers:
-                        #     attackers1 = get_attacker(G, arg1)
-                        #     att_options = []
-                        #     for att in attackers1:
-                        #         if att in set_in1:
-                        #             att_options.append(att)
-                        #     att = random.choice(att_options)
-                        #     str_attack += f"{arg1} is attacked by {att} which is labelled IN; "
-                        # print(str_attack[:-2] + '.', file=f_write)
+                        
                 print(
                     f"(2)To confirm the arguments in OUT set are legally labelled, we verify one of the attackers of {diff2} is labelled IN.",
                     file=f_write)
@@ -490,7 +468,7 @@ def process_dataset(dataset_name):
     grd_files = set(file.stem.replace('_grd', '') + ".pkl" for file in grds)
     com_files = set(file.stem.replace('_com', '') + ".pkl" for file in coms)
     filter_files = grd_files & com_files
-    # 过滤掉在b_dir中有对应.txt文件的.pkl文件
+
     filtered_af_files = [file for file in filenames if file.name not in filter_files]
     print(len(filtered_af_files))
 

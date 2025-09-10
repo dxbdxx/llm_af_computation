@@ -12,9 +12,9 @@ import pynauty
 from networkx.classes.digraph import DiGraph
 from tqdm import tqdm
 
-from src import config
-from src.data.generators.apx_generator import ApxGenerator
-from src.data.utils import apx2nxgraph
+import config
+from data.generators.apx_generator import ApxGenerator
+from data.utils import apx2nxgraph
 
 
 def main(args: argparse.Namespace):

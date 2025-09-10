@@ -2,12 +2,12 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING
 
-from src.constants import ENUM
-from src.data.classes.problems.argumentation_problem import ArgumentationProblem
-from src.data.solvers.enumeration_solver import EnumerationSolver
+from constants import ENUM
+from data.classes.problems.argumentation_problem import ArgumentationProblem
+from data.solvers.enumeration_solver import EnumerationSolver
 
 if TYPE_CHECKING:
-    from src.data.classes.argumentation_framework import ArgumentationFramework
+    from data.classes.argumentation_framework import ArgumentationFramework
 
 
 class EnumerationProblem(ArgumentationProblem):

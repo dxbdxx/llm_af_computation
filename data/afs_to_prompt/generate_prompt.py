@@ -8,7 +8,7 @@ import networkx as nx
 import matplotlib.pyplot as plt
 from tqdm import tqdm
 
-from src import config
+import config
 
 
 class JsonEncoder(json.JSONEncoder):

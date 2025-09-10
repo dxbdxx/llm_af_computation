@@ -7,9 +7,9 @@ import tempfile
 from pathlib import Path
 from typing import Union
 
-from src.constants import PRF, COM, STB, STRICT, NONSTRICT, CRED, SCEPT, GRD
-from src.data.classes.argumentation_framework import ArgumentationFramework
-from src.data.classes.problems.enforcement_problem import (
+from constants import PRF, COM, STB, STRICT, NONSTRICT, CRED, SCEPT, GRD
+from data.classes.argumentation_framework import ArgumentationFramework
+from data.classes.problems.enforcement_problem import (
     StatusEnforcementProblem,
     ExtensionEnforcementProblem,
 )
